@@ -4,6 +4,14 @@ Compare two Docker Compose configurations in a readable way. The tool uses Docke
 
 > **Status:** Early learning project (v0.1.0). The diff is structural and intended to help people review configuration changes. It is not a policy engine or a security audit.
 
+## Verification
+
+The documented before/after example has been run with Docker Compose v5.6.1 and produced seven expected differences. Unit checks cover recursive secret redaction, escaped JSON Pointer paths, and list-position comparisons. Run them with:
+
+```sh
+python3 -m unittest discover -s tests -v
+```
+
 ## What it does
 
 - Compares two Compose files or two ordered sets of base and override files.
@@ -36,6 +44,8 @@ python3 compose_config_diff.py \
   --after examples/after/compose.yaml \
   --after examples/after/compose.override.yaml
 ```
+
+The bundled override examples set `review-tier` to `local` before the change and `staging` after it.
 
 For machine-readable output:
 

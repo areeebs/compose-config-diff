@@ -1,0 +1,4 @@
+services:
+  web:
+    labels:
+      review-tier: local
