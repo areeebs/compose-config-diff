@@ -1,0 +1,16 @@
+services:
+  web:
+    image: nginx:1.27
+    ports:
+      - "127.0.0.1:8080:80"
+    environment:
+      APP_MODE: practice
+      API_TOKEN: fake-before-value
+
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - database:/var/lib/postgresql/data
+
+volumes:
+  database:
